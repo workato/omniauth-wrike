@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.licenses      = ['MIT']
   spec.homepage      = 'https://github.com/Jpuelpan/omniauth-wrike'
 
-  spec.summary       = %q{Omniauth Oauth2 for Wrike}
-  spec.description   = %q{Omniauth Oauth2 Strategy for Wrike}
+  spec.summary       = %q{Wrike strategy for Omniauth.}
+  spec.description   = %q{Wrike strategy for Omniauth.}
 
   spec.files         = `git ls-files`.split("\n")
   spec.bindir        = 'exe'
