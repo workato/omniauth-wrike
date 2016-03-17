@@ -9,43 +9,33 @@ module OmniAuth
         :token_url => 'https://www.wrike.com/oauth2/token'
       }
 
-      # def authorize_params
-        # super.tap do |params|
-        #   %w[scope client_options].each do |v|
-        #     if request.params[v]
-        #       params[v.to_sym] = request.params[v]
-        #     end
-        #   end
-        # end
-      # end
-
       uid { raw_info['id'] }
 
       info do
         {
           'uid' => raw_info['id'],
-          'name' => raw_info['name'],
-          'email' => nil,
-          'image' => nil
+          'name' => raw_info['name']
+        }
+      end
+
+      extra do
+        { 
+          'raw_info' => raw_info,
+          'accounts' => accounts
         }
       end
 
       def raw_info
-        @raw_info ||= default_account
+        @raw_info ||= first_account
       end
 
       def accounts
-        @accounts ||= access_token.get('/accounts').parsed['data']
+        @accounts ||= access_token.get('accounts').parsed['data']
       end
 
-      def default_account
-        @default_account ||= accounts.first
+      def first_account
+        @first_account ||= accounts.first
       end
-
-      # def email
-      #   (email_access_allowed?) ? primary_email : raw_info['email']
-      # end
-
     end
   end
 end
