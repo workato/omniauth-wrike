@@ -32,7 +32,7 @@ module OmniAuth
       end
 
       def accounts
-        @accounts ||= access_token.get('/accounts').parsed['data']
+        @accounts ||= access_token.get('accounts').parsed['data']
       end
 
       def first_account
