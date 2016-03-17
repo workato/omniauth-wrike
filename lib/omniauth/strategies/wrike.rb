@@ -1,4 +1,4 @@
-require 'omniauth-oauth-2'
+require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
@@ -9,22 +9,21 @@ module OmniAuth
         :token_url => 'https://www.wrike.com/oauth2/token'
       }
 
-      def request_phase
-        super
-      end
+      # def request_phase
+      #   super
+      # end
 
-      def authorize_params
-        super.tap do |params|
-          %w[scope client_options].each do |v|
-            if request.params[v]
-              params[v.to_sym] = request.params[v]
-            end
-          end
-        end
-      end
+      # def authorize_params
+        # super.tap do |params|
+        #   %w[scope client_options].each do |v|
+        #     if request.params[v]
+        #       params[v.to_sym] = request.params[v]
+        #     end
+        #   end
+        # end
+      # end
 
-      # uid {  }
-
+      # uid { raw_info['uid'] }
 
       # info do
       #   {
