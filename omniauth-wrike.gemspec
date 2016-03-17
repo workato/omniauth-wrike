@@ -8,23 +8,16 @@ Gem::Specification.new do |spec|
   spec.name          = 'omniauth-wrike'
   spec.authors       = ['Juan Puelpan']
   spec.email         = ['juan@puelpan.com']
+  spec.licenses      = ['MIT']
+  spec.homepage      = 'https://github.com/Jpuelpan/omniauth-wrike'
 
-  spec.summary       = %q{Omniauth Oauth2 Strategy for Wrike}
+  spec.summary       = %q{Omniauth Oauth2 for Wrike}
   spec.description   = %q{Omniauth Oauth2 Strategy for Wrike}
-
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
 
   spec.files         = `git ls-files`.split("\n")
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'omniauth'         , '~> 1.0'
-  spec.add_dependency 'omniauth-oauth2'  , '>= 1.1.1', '< 2.0'
+  spec.add_dependency 'omniauth-oauth2', '~> 1.4'
 end

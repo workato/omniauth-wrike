@@ -3,8 +3,10 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class Wrike < OmniAuth::Strategies::OAuth2
+      option :name, 'wrike'
+
       option :client_options, {
-        :site => 'https://www.wrike.com/api/v3/',
+        :site => 'https://www.wrike.com/api/v3',
         :authorize_url => 'https://www.wrike.com/oauth2/authorize',
         :token_url => 'https://www.wrike.com/oauth2/token'
       }
@@ -30,7 +32,7 @@ module OmniAuth
       end
 
       def accounts
-        @accounts ||= access_token.get('accounts').parsed['data']
+        @accounts ||= access_token.get('/accounts').parsed['data']
       end
 
       def first_account
