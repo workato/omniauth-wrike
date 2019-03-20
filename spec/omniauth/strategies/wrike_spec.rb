@@ -3,6 +3,7 @@ require 'spec_helper'
 describe OmniAuth::Strategies::Wrike do
   let(:request) { double('Request', params: {}, cookies: {}, env: {}) }
   let(:profile) { raw_info_hash['profiles'].first }
+  let(:user_id) { [account_info_hash['id'], raw_info_hash['id']].join(":") }
 
   subject do
     args = ['appid', 'secret', @options || {}].compact
@@ -37,7 +38,7 @@ describe OmniAuth::Strategies::Wrike do
     end
 
     it 'returns the uid' do
-      expect(subject.info[:uid]).to eq(raw_info_hash['id'])
+      expect(subject.info[:uid]).to eq(user_id)
     end
 
     it 'returns the name' do
@@ -107,5 +108,12 @@ def raw_info_hash
     "locale" => "en",
     "deleted" => false,
     "me" => true
+  }
+end
+
+def account_info_hash
+  {
+    "id" => "IEAAAAX3",
+    "name" => "Test User’s Team"
   }
 end
