@@ -40,13 +40,18 @@ module OmniAuth
       end
 
       def user_data_url
-        puts "user_data_url: #{access_token ? access_token.params : nil}"
-        @user_data_url ||= URI::HTTPS.build(host: access_token.params['host'], path: '/api/v4/contacts', query: 'me=true').to_s
+        @user_data_url ||= URI::HTTPS.build(
+          host: access_token.params['host'],
+          path: '/api/v4/contacts',
+          query: 'me=true'
+        ).to_s
       end
 
       def user_account_url
-        puts "user_account_url: #{access_token ? access_token.params : nil}"
-        @user_account_url ||= URI::HTTPS.build(host: access_token.params['host'], path: '/api/v4/account').to_s
+        @user_account_url ||= URI::HTTPS.build(
+          host: access_token.params['host'],
+          path: '/api/v4/account'
+        ).to_s
       end
 
       def account_info
