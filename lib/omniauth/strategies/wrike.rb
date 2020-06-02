@@ -7,8 +7,8 @@ module OmniAuth
 
       option :client_options,
              site: 'https://www.wrike.com/api/v4',
-             authorize_url: 'https://www.wrike.com/oauth2/authorize/v4',
-             token_url: 'https://www.wrike.com/oauth2/token'
+             authorize_url: 'https://login.wrike.com/oauth2/authorize/v4',
+             token_url: 'https://login.wrike.com/oauth2/token'
 
       uid { user_id }
 

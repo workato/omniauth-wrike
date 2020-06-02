@@ -25,7 +25,7 @@ describe OmniAuth::Strategies::Wrike do
     end
 
     it 'has correct authorize url' do
-      expect(subject.options.client_options.authorize_url).to eq('https://www.wrike.com/oauth2/authorize/v4')
+      expect(subject.options.client_options.authorize_url).to eq('https://login.wrike.com/oauth2/authorize/v4')
     end
   end
 
